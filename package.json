@@ -1,0 +1,18 @@
+{
+  "name": "nhc-client",
+  "version": "0.0.1",
+  "description": "Client to interface with a Niko Home Control installation",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevinbungeneers/homekit-nhc.git"
+  },
+  "keywords": [
+    "Niko Home Control"
+  ],
+  "author": "Kevin Bungeneers <kevin.bungeneers@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kevinbungeneers/nhc-client/issues"
+  },
+  "homepage": "https://github.com/kevinbungeneers/nhc-client#readme"
+}
