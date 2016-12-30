@@ -1,37 +1,34 @@
 const HomeControlClient = require('./HomeControlClient');
 
-class Action {
-  constructor(action, client) {
-    this._client = client;
-    this._id = action.id;
-    this._name = action.name;
-    this._type = action.type;
-    this._location = action.location;
-    this._value1 = action.value1;
+function Action(action, client) {
+    this.id = action.id;
+    this.name = action.name;
+    this.type = action.type;
+    this.location = action.location;
+    this.value1 = action.value1;
 
-    this._client.on('listactions_event', this._onListActions.bind(this));
+    this.client = client;
+
+    this.client.on('listactions_event', this.onListActions.bind(this));
+}
+
+Action.prototype.execute = function() {
+  if (this.value1 == 0) {
+    this.value1 = 100;
+  } else {
+    this.value1 = 0
   }
+  
+  this.client.executeAction(this);
+}
 
-  execute() {
-    var newValue = 0;
-    if (this._value1 == 0) {
-      newValue = 100;
+Action.prototype.onListActions = function(actions) {
+  var action;
+  for (action of actions) {
+    if (action.id == this._id) {
+      this.value1 = action.value1;
+      break;
     }
-    this._client.executeAction(this._id, newValue);
-  }
-
-  _onListActions(actions) {
-    var action;
-    for (action of actions) {
-      if (action.id == this._id) {
-        this._value1 = action.value1;
-        break;
-      }
-    }
-  }
-
-  get id() {
-    return this._id;
   }
 }
 
