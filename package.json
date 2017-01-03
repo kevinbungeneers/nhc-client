@@ -14,5 +14,8 @@
   "bugs": {
     "url": "https://github.com/kevinbungeneers/nhc-client/issues"
   },
-  "homepage": "https://github.com/kevinbungeneers/nhc-client#readme"
+  "homepage": "https://github.com/kevinbungeneers/nhc-client#readme",
+  "dependencies": {
+    "ip": "^1.1.4"
+  }
 }
