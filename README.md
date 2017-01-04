@@ -2,7 +2,9 @@
 Niko Home Control Client or NHC Client for short, allows you to interface with your Home Control installation.
 
 The following features are or will be supported:
+- [x] Automatically discover a NHC installation on the network
 - [x] Switching on and off lights
+- [ ] Controlling outlets
 - [ ] Controlling motor-controlled applications (Roller blinds, curtains, garage door)
 - [ ] Access to video feed from doorbell
 
@@ -29,7 +31,6 @@ The following example shows you how to load all the available actions and how to
 const HomeControlClient  = require('nhc-client').HomeControlClient;
 
 var client = new HomeControlClient();
-client.connect("192.168.0.226");
 
 client.on('connect', function() {
   client.listActions(function(actions) {
@@ -40,6 +41,8 @@ client.on('connect', function() {
     });
   });
 });
+
+client.connect();
 ```
 
 ## Notes
